@@ -1,5 +1,5 @@
 {
-  "name": "super-bassoon",
+  "name": "modu-mate",
   "version": "1.0.0",
   "description": "",
   "main": "auth.js",
@@ -17,14 +17,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/smcnab1/super-bassoon.git"
+    "url": "git+https://github.com/smcnab1/modu-mate.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
   "bugs": {
-    "url": "https://github.com/smcnab1/super-bassoon/issues"
+    "url": "https://github.com/smcnab1/modu-mate/issues"
   },
-  "homepage": "https://github.com/smcnab1/super-bassoon#readme"
+  "homepage": "https://github.com/smcnab1/modu-mate#readme"
 }
