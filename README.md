@@ -5,14 +5,13 @@
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![Kofi][kofi-badge]][kofi-url]
 
 <a name="readme-top"></a>
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/smcnab1/super-bassoon">
+  <a href="https://github.com/smcnab1/modu-mate">
     <img src="images/logo.png" alt="ModuMate Logo" width="80" height="80">
   </a>
 
@@ -21,14 +20,14 @@
   <p align="center">
     A comprehensive web suite of tools to generate LMS Templates. 🎓📅
     <br />
-    <a href="https://smcnab1.github.io/super-bassoon/"><strong>View Live Demo »</strong></a>
+    <a href="https://smcnab1.github.io/modu-mate/"><strong>View Live Demo »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/smcnab1/super-bassoon">View Source</a>
+    <a href="https://github.com/smcnab1/modu-mate">View Source</a>
     ·
-    <a href="https://github.com/smcnab1/super-bassoon/issues">Report Bug</a>
+    <a href="https://github.com/smcnab1/modu-mate/issues">Report Bug</a>
     ·
-    <a href="https://github.com/smcnab1/super-bassoon/issues">Request Feature</a>
+    <a href="https://github.com/smcnab1/modu-mate/issues">Request Feature</a>
   </p>
 </div>
 
@@ -57,14 +56,15 @@
 - [License](#license)
 
 <!-- tocstop -->
-  
+
 </details>
 
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
 
 <div align="center">
-  <a href="https://github.com/smcnab1/super-bassoon">
+  <a href="https://github.com/smcnab1/modu-mate">
     <img src="images/screenshot.png" alt="MScSimEd Timetable Generator Screenshot" width="100%" height="auto">
   </a>
 </div>
@@ -77,7 +77,7 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 - **📄 Preset Management**: Save and load timetable presets with cohort support (April/September)
 - **📅 Multiple Export Formats**: Export to PDF, HTML, and iCalendar (.ics) formats
 - **🌙 Dark/Light Theme**: Toggle between themes with persistent preferences
-- **♿ Accessibility**: WCAG 2.1 AA compliant with screen reader support
+- **♿ Accessibility**: designed with WCAG 2.1 AA accessibility principles
 - **📱 Responsive Design**: Works seamlessly on desktop, tablet, and mobile devices
 - **🔄 Real-time Preview**: Live preview of timetable changes
 - **📊 Week Management**: Add, remove, and reorder weeks with different types (Teaching, Reading, Assessment, Break)
@@ -104,28 +104,31 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Installation
 
 1. Clone the repository
+
    ```bash
-   git clone https://github.com/smcnab1/super-bassoon.git
-   cd super-bassoon
+   git clone https://github.com/smcnab1/modu-mate.git
+   cd modu-mate
    ```
 
 2. Open `index.html` in your web browser
+
    ```bash
    # On macOS/Linux
    open index.html
-   
+
    # On Windows
    start index.html
    ```
 
 3. Or serve with a local server (recommended)
+
    ```bash
    # Using Python 3
    python -m http.server 8000
-   
+
    # Using Node.js
    npx serve .
-   
+
    # Using PHP
    php -S localhost:8000
    ```
@@ -145,6 +148,7 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Timetable Generation
 
 #### Core Functionality
+
 - **Week Management**: Add, remove, and reorder weeks dynamically
 - **Week Types**: Support for Teaching, Reading, Assessment, and Break weeks
 - **Date Calculation**: Automatic date calculation based on first teaching date
@@ -152,12 +156,14 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 - **Real-time Updates**: Changes reflect immediately in the preview
 
 #### Week Types & Styling
+
 - **Teaching Weeks**: Blue styling with comprehensive content areas
 - **Reading Weeks**: Orange styling for self-study periods
 - **Assessment Weeks**: Red styling for evaluation periods
 - **Break Weeks**: Purple styling for holidays and breaks
 
 #### Module Information
+
 - **Module Details**: Display module name, code, year, and leader
 - **Cohort Support**: Separate data for April and September cohorts
 - **Tutor Management**: Add and manage multiple tutors per module
@@ -166,12 +172,14 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Preset Management
 
 #### Custom Presets
+
 - **JSON Import/Export**: Full preset data import and export
 - **File Upload**: Drag-and-drop or file selection for JSON files
 - **Validation**: Automatic validation of JSON structure
 - **Backup**: Local storage backup of custom presets
 
 #### Cohort Support
+
 - **Dual Cohorts**: Separate data for April and September intakes
 - **Date Differences**: Automatic handling of different academic calendars
 - **Cohort Selection**: Modal-based cohort selection when loading presets
@@ -180,6 +188,7 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Export Options
 
 #### PDF Export
+
 - **Professional Layout**: Clean, print-ready PDF format
 - **Module Information**: Complete module details and cohort information
 - **Week Details**: All week information with proper formatting
@@ -187,12 +196,14 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 - **Custom Styling**: Optimized for both screen and print viewing
 
 #### HTML Export
+
 - **Full HTML**: Complete HTML markup for external use
 - **Copy to Clipboard**: One-click copying of generated HTML
 - **Styling Included**: All CSS styles embedded in the HTML
 - **Responsive**: Maintains responsive design in exported HTML
 
 #### Calendar Export (.ics)
+
 - **iCalendar Format**: Standard calendar format compatible with all major calendar apps
 - **Event Details**: Each week as a calendar event with full details
 - **Time Slots**: Default 09:00-17:00 time slots for each week
@@ -206,6 +217,7 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Accessibility
 
 #### WCAG 2.1 AA Compliance
+
 - **Keyboard Navigation**: Full keyboard accessibility
 - **Screen Reader Support**: Proper ARIA labels and semantic markup
 - **Focus Management**: Clear focus indicators and logical tab order
@@ -213,12 +225,14 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 - **Skip Links**: Skip to main content functionality
 
 #### Assistive Technology Support
+
 - **Screen Readers**: Compatible with NVDA, JAWS, VoiceOver, and TalkBack
 - **High Contrast Mode**: Automatic adaptation to system high contrast settings
 - **Reduced Motion**: Respects user's motion preferences
 - **Font Scaling**: Supports browser font scaling up to 200%
 
 #### Semantic HTML
+
 - **Proper Headings**: Logical heading hierarchy (h1-h3)
 - **Landmark Roles**: Navigation, main, and content landmarks
 - **Form Labels**: All form elements properly labeled
@@ -231,8 +245,9 @@ ModuMate LMS Template Generator is a modern, accessible web application designed
 ### Architecture
 
 #### File Structure
+
 ```
-super-bassoon/
+modu-mate/
 ├── index.html                 # Main landing page
 ├── styles.css                 # Comprehensive CSS with theming
 ├── timetable/
@@ -248,6 +263,7 @@ super-bassoon/
 ```
 
 #### Data Structure
+
 ```json
 {
   "ED70011X": {
@@ -276,6 +292,7 @@ super-bassoon/
 ```
 
 #### CSS Architecture
+
 - **CSS Custom Properties**: Theme variables for consistent styling
 - **Dark/Light Themes**: Complete theme system with smooth transitions
 - **Responsive Design**: Mobile-first approach with breakpoints
@@ -283,6 +300,7 @@ super-bassoon/
 - **Print Styles**: Optimized CSS for PDF generation
 
 #### JavaScript Features
+
 - **ES6+ Syntax**: Modern JavaScript with arrow functions, destructuring, etc.
 - **Local Storage**: Persistent data storage for user preferences
 - **Event Handling**: Comprehensive event management
@@ -293,12 +311,14 @@ super-bassoon/
 ### Browser Support
 
 #### Supported Browsers
+
 - **Chrome**: 80+ (Full support)
 - **Firefox**: 75+ (Full support)
 - **Safari**: 13+ (Full support)
 - **Edge**: 80+ (Full support)
 
 #### Required Features
+
 - **CSS Custom Properties**: For theming system
 - **ES6 Modules**: For modern JavaScript features
 - **Local Storage**: For data persistence
@@ -306,6 +326,7 @@ super-bassoon/
 - **Blob API**: For file downloads
 
 #### Progressive Enhancement
+
 - **Graceful Degradation**: Core functionality works without JavaScript
 - **Feature Detection**: Automatic fallbacks for unsupported features
 - **Polyfills**: Minimal polyfills for older browsers
@@ -327,17 +348,20 @@ Contributions are what make the open source community such an amazing place to l
 ### Development Guidelines
 
 #### Code Style
+
 - **HTML**: Semantic markup with proper accessibility attributes
 - **CSS**: Use CSS custom properties, follow BEM methodology
 - **JavaScript**: ES6+ syntax, meaningful variable names, proper error handling
 
 #### Accessibility Requirements
+
 - All new features must be keyboard accessible
 - Screen reader compatibility required
-- Maintain WCAG 2.1 AA compliance
+- Follow WCAG 2.1 AA best-practices
 - Test with assistive technologies
 
 #### Testing Checklist
+
 - [ ] Test on multiple browsers (Chrome, Firefox, Safari, Edge)
 - [ ] Test responsive design on mobile devices
 - [ ] Verify keyboard navigation
@@ -348,6 +372,7 @@ Contributions are what make the open source community such an amazing place to l
 ### Reporting Issues
 
 When reporting issues, please include:
+
 - **Browser and version**
 - **Operating system**
 - **Steps to reproduce**
@@ -361,6 +386,7 @@ When reporting issues, please include:
 This project is licensed under the [MIT License](LICENSE.md) - see the [LICENSE.md](LICENSE.md) file for details.
 
 The MIT License allows for:
+
 - ✅ Commercial use
 - ✅ Modification
 - ✅ Distribution
@@ -372,22 +398,19 @@ The MIT License allows for:
 
 <!-- MARKDOWN LINKS & IMAGES -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/smcnab1/super-bassoon.svg?style=for-the-badge
-[contributors-url]: https://github.com/smcnab1/super-bassoon/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/smcnab1/super-bassoon.svg?style=for-the-badge
-[forks-url]: https://github.com/smcnab1/super-bassoon/network/members
-[stars-shield]: https://img.shields.io/github/stars/smcnab1/super-bassoon.svg?style=for-the-badge
-[stars-url]: https://github.com/smcnab1/super-bassoon/stargazers
-[issues-shield]: https://img.shields.io/github/issues/smcnab1/super-bassoon.svg?style=for-the-badge
-[issues-url]: https://github.com/smcnab1/super-bassoon/issues
-[license-shield]: https://img.shields.io/github/license/smcnab1/super-bassoon.svg?style=for-the-badge
-[license-url]: https://github.com/smcnab1/super-bassoon/blob/master/LICENSE.md
+[contributors-shield]: https://img.shields.io/github/contributors/smcnab1/modu-mate.svg?style=for-the-badge
+[contributors-url]: https://github.com/smcnab1/modu-mate/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/smcnab1/modu-mate.svg?style=for-the-badge
+[forks-url]: https://github.com/smcnab1/modu-mate/network/members
+[stars-shield]: https://img.shields.io/github/stars/smcnab1/modu-mate.svg?style=for-the-badge
+[stars-url]: https://github.com/smcnab1/modu-mate/stargazers
+[issues-shield]: https://img.shields.io/github/issues/smcnab1/modu-mate.svg?style=for-the-badge
+[issues-url]: https://github.com/smcnab1/modu-mate/issues
+[license-shield]: https://img.shields.io/github/license/smcnab1/modu-mate.svg?style=for-the-badge
+[license-url]: https://github.com/smcnab1/modu-mate/blob/master/LICENSE.md
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sammcnab/
 [product-screenshot]: images/screenshot.png
 [email-badge]: https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white
-[email-url]: mailto:sam@sammcnab.co.uk
 [git-badge]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
 [git-url]: https://github.com/smcnab1
-[kofi-badge]: https://ko-fi.com/img/githubbutton_sm.svg
-[kofi-url]: https://ko-fi.com/sammcnab1
