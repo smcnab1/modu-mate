@@ -1,39 +1,19 @@
 # Changelog
 
-All notable changes to this project will be documented in this file.
+Notable changes to ModuMate are recorded here.
 
-## [Unreleased]
-
-<!--
-Notes for any unreleased changes do here. When a new release is cut, move these from
-the unreleased section to the section for the new release.
--->
-
-Upcoming changes.
-
-### Added
+## Unreleased
 
 ### Changed
 
-### Removed
+- Replaced public sample staff records with fictional data.
+- Removed ineffective client-side password protection from the static app.
+- Simplified continuous integration and GitHub Pages deployment.
+- Corrected repository metadata, licensing and accessibility wording.
+- Refocused the public documentation on ModuMate.
 
-## [project-template-repo-1.0] - 2024-01-01
+## 1.0.0
 
-🌱 Initial Release.
+- Initial ModuMate release.
 
-### Added
-
-- Auto-Update Documentation Links with current repo name
-- Update Email Addresses: CODE_OF_CONDUCT, SECURITY.
-- Download files & folders from another GitHub Repo
-- Generate Markdown styled index file with SEO details
-- Generate Table of Contents into README
-- Several files already created for you as a template
-
-
-<!--
-These Markdown anchors provide a link to the diff for each release. They should be
-updated any time a new release is cut.
--->
-[Unreleased]: /
-[project-template-repo-1.0]: https://github.com/smcnab1/project-template-repo/releases/tag/project-template-repo-1.0
+[1.0.0]: https://github.com/smcnab1/modu-mate/releases/tag/v1.0.0
