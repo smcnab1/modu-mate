@@ -1,31 +1,13 @@
-# Security Policy
+# Security policy
 
-## Supported Versions
+## Supported version
 
-| Version | Supported          |
-| ------- | ------------------ |
-| 5.1.x   | :white_check_mark: |
-| 5.0.x   | :x:                |
-| 4.0.x   | :white_check_mark: |
-| < 4.0   | :x:                |
+Security fixes are applied to the current code on the `master` branch.
 
-## Reporting a Vulnerability
+## Reporting a vulnerability
 
-If you have identified a security vulnerability in system or product please get in touch with your findings via [this page](https://sammcnab.co.uk/contact). We strongly recommend using our `PGP key` to prevent this information from falling into the wrong hands.
+Do not include vulnerability details, credentials, personal data or other sensitive information in a public issue.
 
-### Disclosure Policy
+Report a potential vulnerability privately through the repository's [security advisory form](https://github.com/smcnab1/modu-mate/security/advisories/new). If private reporting is unavailable, use the [maintainer contact form](https://sammcnab.co.uk/contact).
 
-Upon receipt of a security report the following steps will be taken:
-
-- Acknowledge your report within 48 hours, and provide a further more detailed update within 48 hours.
-- Confirm the problem and determine the affected versions
-- Keep you informed of the progress towards resolving the problem and notify you when the vulnerability has been fixed.
-- Audit code to find any potential similar problems.
-- Prepare fixes for all releases still under maintenance. These fixes will be released as fast as possible.
-- Handle your report with strict confidentiality, and not pass on your personal details to third parties without your permission.
-
-Whilst the issue is under investigation
-
-- **Do** provide as much information as possible.
-- **Do not** exploit of the vulnerability or problem you have discovered.
-- **Do not** reveal the problem to others until it has been resolved.
+For ordinary bugs that are safe to disclose publicly, open a [GitHub issue](https://github.com/smcnab1/modu-mate/issues).
