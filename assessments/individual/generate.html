@@ -15,7 +15,6 @@
   <meta name="theme-color" content="#4a90e2">
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="../../auth.js"></script>
   <style>
     .first-teaching-date-section {
       background: var(--card-bg);
@@ -512,8 +511,8 @@
         <button class="dropdown-btn">📅 Timetable</button>
         <div class="dropdown-content">
           <a href="../../timetable/generate.html">🎯 Generate</a>
-          <a href="../../timetable/new.html">📄 New Preset</a>
-          <a href="../../timetable/edit.html">✏️ Edit Preset</a>
+          <a href="../../timetable/preset/new.html">📄 New Preset</a>
+          <a href="../../timetable/preset/edit.html">✏️ Edit Preset</a>
         </div>
       </div>
       <div class="dropdown">
@@ -532,7 +531,7 @@
           <a href="../overview/edit.html">✏️ Edit Preset</a>
         </div>
       </div>
-      <a href="../../overview/generate.html" class="navbar-link">📘 Module Overview</a>
+      <a href="../../overview/new.html" class="navbar-link">📘 Module Overview</a>
       <a href="../../team/generate.html" class="navbar-link">👥 Module Team</a>
       <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </div>
@@ -1210,4 +1209,4 @@ function importFromFile() {
     window.onload = function() { loadData(); generateHtml(); };
   </script>
 </body>
-</html> 
+</html>
