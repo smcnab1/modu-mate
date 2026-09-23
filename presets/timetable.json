@@ -5,11 +5,11 @@
       "moduleName": "Foundations of Simulation Education",
       "moduleCode": "ED70011X",
       "year": "1",
-      "moduleLeader": "Anita Sudhagar",
+      "moduleLeader": "Taylor Example",
       "firstTeachingDate": "2025-04-23",
       "moduleTutors": [
-        { "name": "Anita Sudhagar", "campus": "London" },
-        { "name": "Sam Knipe", "campus": "Reading" }
+        { "name": "Taylor Example", "campus": "London" },
+        { "name": "Morgan Example", "campus": "Reading" }
       ],
       "weeks": [
         {
@@ -17,7 +17,7 @@
           "type": "teaching",
           "highlight": true,
           "date": "2025-04-23",
-          "location": "UWL Reading",
+          "location": "Reading campus",
           "topic": "Welcome & Introduction"
         },
         {
@@ -35,11 +35,11 @@
       "moduleName": "Foundations of Simulation Education",
       "moduleCode": "ED70011X",
       "year": "1",
-      "moduleLeader": "Anita Sudhagar",
+      "moduleLeader": "Taylor Example",
       "firstTeachingDate": "2025-09-23",
       "moduleTutors": [
-        { "name": "Anita Sudhagar", "campus": "London" },
-        { "name": "Sam Knipe", "campus": "Reading" }
+        { "name": "Taylor Example", "campus": "London" },
+        { "name": "Morgan Example", "campus": "Reading" }
       ],
       "weeks": [
         {
@@ -47,7 +47,7 @@
           "type": "teaching",
           "highlight": true,
           "date": "2025-09-23",
-          "location": "UWL Reading",
+          "location": "Reading campus",
           "topic": "Welcome & Introduction"
         },
         {
@@ -67,11 +67,11 @@
       "moduleName": "Simulation Delivery & Leadership",
       "moduleCode": "ED70012X",
       "year": "1",
-      "moduleLeader": "asd",
+      "moduleLeader": "Casey Example",
       "firstTeachingDate": "2025-04-23",
       "moduleTutors": [
         {
-          "name": "asd",
+          "name": "Casey Example",
           "campus": "London"
         }
       ],
@@ -107,11 +107,11 @@
       "moduleName": "Simulation Delivery & Leadership",
       "moduleCode": "ED70012X",
       "year": "1",
-      "moduleLeader": "asd",
+      "moduleLeader": "Casey Example",
       "firstTeachingDate": "2025-09-23",
       "moduleTutors": [
         {
-          "name": "asd",
+          "name": "Casey Example",
           "campus": "London"
         }
       ],
@@ -149,15 +149,15 @@
       "moduleName": "Digital Technologies in Education",
       "moduleCode": "ED70013X",
       "year": "2",
-      "moduleLeader": "Sam McNab",
+      "moduleLeader": "Alex Example",
       "firstTeachingDate": "2025-04-23",
       "moduleTutors": [
         {
-          "name": "Sam McNab",
+          "name": "Alex Example",
           "campus": "London"
         },
         {
-          "name": "Antony Newman",
+          "name": "Jamie Example",
           "campus": "Reading"
         }
       ],
@@ -321,15 +321,15 @@
       "moduleName": "Digital Technologies in Education",
       "moduleCode": "ED70013X",
       "year": "2",
-      "moduleLeader": "Sam McNab",
+      "moduleLeader": "Alex Example",
       "firstTeachingDate": "2025-09-23",
       "moduleTutors": [
         {
-          "name": "Sam McNab",
+          "name": "Alex Example",
           "campus": "London"
         },
         {
-          "name": "Antony Newman",
+          "name": "Jamie Example",
           "campus": "Reading"
         }
       ],

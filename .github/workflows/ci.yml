@@ -1,46 +1,55 @@
-name: CI/CD Workflow
+name: CI and Pages
 
 on:
   push:
-    branches: [main, master, dev, develop]
+    branches: [master]
   pull_request:
-    branches: [main, master, dev, develop]
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  lint-and-test:
+  lint:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
+      - name: Check out repository
+        uses: actions/checkout@v7
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
-          node-version: '20'
-          cache: 'npm'
-
+          node-version: 24
+          cache: npm
       - name: Install dependencies
-        run: npm ci --omit=optional
-
-      - name: Lint code (non-blocking)
-        run: npm run lint || echo "Lint failed"
-
-      - name: Run tests (non-blocking)
-        run: npm test || echo "No tests defined"
+        run: npm ci
+      - name: Lint
+        run: npm run lint
 
   deploy:
-    needs: lint-and-test
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: lint
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Check out repository
+        uses: actions/checkout@v7
+      - name: Configure Pages
+        uses: actions/configure-pages@v6
+      - name: Upload static site
+        uses: actions/upload-pages-artifact@v5
         with:
-          github_token: ${{ secrets.GH_RELEASE_TOKEN }}
-          publish_dir: ./
-          enable_jekyll: false
+          path: .
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
