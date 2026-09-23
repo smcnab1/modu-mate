@@ -6,20 +6,19 @@
   <title>Assessment Generator | MScSimEd</title>
   
   <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="../favicon/favicon.ico">
-  <link rel="icon" type="image/svg+xml" href="../favicon/favicon.svg">
-  <link rel="icon" type="image/png" sizes="96x96" href="../favicon/favicon-96x96.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="../favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="../favicon/web-app-manifest-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="../favicon/web-app-manifest-512x512.png">
-  <link rel="manifest" href="../favicon/site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="../../favicon/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="../../favicon/favicon.svg">
+  <link rel="icon" type="image/png" sizes="96x96" href="../../favicon/favicon-96x96.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="../../favicon/web-app-manifest-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="../../favicon/web-app-manifest-512x512.png">
+  <link rel="manifest" href="../../favicon/site.webmanifest">
   <meta name="theme-color" content="#4a90e2">
   
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-  <script src="../../auth.js"></script>
   <style>
     .first-teaching-date-section {
       background: var(--card-bg);
@@ -448,8 +447,8 @@
         <button class="dropdown-btn">📅 Timetable</button>
         <div class="dropdown-content">
           <a href="../../timetable/generate.html">🎯 Generate</a>
-          <a href="../../timetable/new.html">📄 New Preset</a>
-          <a href="../../timetable/edit.html">✏️ Edit Preset</a>
+          <a href="../../timetable/preset/new.html">📄 New Preset</a>
+          <a href="../../timetable/preset/edit.html">✏️ Edit Preset</a>
         </div>
       </div>
       <div class="dropdown">
@@ -461,7 +460,7 @@
         </div>
       </div>
         <a href="../overview/new.html" class="navbar-link">📘 Module Overview</a>
-        <a href="../team/generate.html" class="navbar-link">👥 Module Team</a>
+        <a href="../../team/generate.html" class="navbar-link">👥 Module Team</a>
         <button class="theme-toggle" onclick="toggleTheme()" id="themeToggle" aria-label="Toggle dark mode">🌙</button>
     </div>
   </nav>
@@ -1079,18 +1078,6 @@
       //   notPermittedSection = '';
       // }
       // Return the provided HTML template, filled in
-      // Generate module leader email from name
-      function makeLeaderEmail(name) {
-        if (!name) return '';
-        // Remove titles and extra spaces, lowercase, replace spaces with dots
-        let email = name.trim().toLowerCase();
-        email = email.replace(/^(dr\.|prof\.|mr\.|mrs\.|ms\.|miss)\s+/i, '');
-        email = email.replace(/\s+/g, '.');
-        email = email.replace(/[^a-z.]/g, ''); // Remove non-alpha except dot
-        return email + '@uwl.ac.uk';
-      }
-      const moduleLeaderEmail = makeLeaderEmail(moduleLeader);
-
       // Get formative assessments from the loaded preset (if available)
       let formativeAssessments = [];
       let includeFormative = false;
@@ -1267,7 +1254,7 @@
       For detailed guidance on submitting assessments online, visit the 
       <a href="https://www.uwl.ac.uk/current-students/online-learning-tools/submitting-feedback-grades-online-using-turnitin#:~:text=How%20you%20submit%20your%20work,(website%20assessments%20and%20portfolios)." target="_blank" rel="noopener noreferrer">Submission Guidance page</a>.
       </p>
-      <p>If you have any questions or problems, please contact your <a href="mailto:${moduleLeaderEmail}">module leader</a>.</p>
+      <p>If you have any questions or problems, please contact your module leader through your institution's approved contact channel.</p>
     </div>
   </div>
 </html>
