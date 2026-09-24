@@ -1,0 +1,40 @@
+{
+  "teamMembers": [
+    {
+      "name": "Alex Example",
+      "title": "Module Lead",
+      "image": "../images/avatar.png",
+      "email": "alex.example@example.edu",
+      "teams": "alex.example@example.edu",
+      "website": "https://example.edu/people/alex-example",
+      "phone": "+44 20 7946 0001"
+    },
+    {
+      "name": "Jamie Example",
+      "title": "Module Tutor",
+      "image": "../images/avatar.png",
+      "email": "jamie.example@example.edu",
+      "teams": "jamie.example@example.edu",
+      "website": "https://example.edu/people/jamie-example",
+      "phone": "+44 20 7946 0002"
+    },
+    {
+      "name": "Morgan Example",
+      "title": "Module Tutor",
+      "image": "../images/avatar.png",
+      "email": "morgan.example@example.edu",
+      "teams": "morgan.example@example.edu",
+      "website": "https://example.edu/people/morgan-example",
+      "phone": "+44 20 7946 0003"
+    },
+    {
+      "name": "Taylor Example",
+      "title": "Module Tutor",
+      "image": "../images/avatar.png",
+      "email": "taylor.example@example.edu",
+      "teams": "taylor.example@example.edu",
+      "website": "https://example.edu/people/taylor-example",
+      "phone": "+44 20 7946 0004"
+    }
+  ]
+}
