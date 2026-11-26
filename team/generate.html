@@ -342,6 +342,7 @@
       }
     }
   </style>
+<script src="../html-output.js"></script>
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
@@ -945,7 +946,7 @@
       
       card.innerHTML = `
         <div class="team-member-header" onclick="toggleModuleLeader()">
-          <h3>${headerText}</h3>
+          <h3>${escapeHtml(headerText)}</h3>
           <span class="team-member-toggle" id="toggle-leader">▶</span>
           <button type="button" class="remove-team-member" onclick="event.stopPropagation(); removeModuleLeader()">
             <i class="fas fa-trash"></i> Remove
@@ -955,32 +956,32 @@
           <div class="team-member-fields">
             <div>
               <label for="leader-name">Name *</label>
-              <input type="text" id="leader-name" value="${moduleLeader.name}" 
+              <input type="text" id="leader-name" value="${escapeHtml(moduleLeader.name)}"
                      onchange="updateModuleLeader('name', this.value)" required>
             </div>
             <div>
               <label for="leader-image">Profile Image URL</label>
-              <input type="url" id="leader-image" value="${moduleLeader.image}" 
+              <input type="url" id="leader-image" value="${escapeHtml(moduleLeader.image)}"
                      onchange="updateModuleLeader('image', this.value)">
             </div>
             <div>
               <label for="leader-email">Email Address *</label>
-              <input type="email" id="leader-email" value="${moduleLeader.email}" 
+              <input type="email" id="leader-email" value="${escapeHtml(moduleLeader.email)}"
                      onchange="updateModuleLeader('email', this.value)" required>
             </div>
             <div>
               <label for="leader-teams">MS Teams Username</label>
-              <input type="text" id="leader-teams" value="${moduleLeader.teams}" 
+              <input type="text" id="leader-teams" value="${escapeHtml(moduleLeader.teams)}"
                      onchange="updateModuleLeader('teams', this.value)">
             </div>
             <div>
               <label for="leader-website">Website URL</label>
-              <input type="url" id="leader-website" value="${moduleLeader.website}" 
+              <input type="url" id="leader-website" value="${escapeHtml(moduleLeader.website)}"
                      onchange="updateModuleLeader('website', this.value)">
             </div>
             <div>
               <label for="leader-phone">Phone Number</label>
-              <input type="tel" id="leader-phone" value="${moduleLeader.phone}" 
+              <input type="tel" id="leader-phone" value="${escapeHtml(moduleLeader.phone)}"
                      onchange="updateModuleLeader('phone', this.value)">
             </div>
           </div>
@@ -1004,7 +1005,7 @@
         
         card.innerHTML = `
           <div class="team-member-header" onclick="toggleModuleTutor(${index})">
-            <h3>${headerText}</h3>
+            <h3>${escapeHtml(headerText)}</h3>
             <span class="team-member-toggle" id="toggle-tutor-${index}">▶</span>
             <button type="button" class="remove-team-member" onclick="event.stopPropagation(); removeModuleTutor(${index})">
               <i class="fas fa-trash"></i> Remove
@@ -1014,32 +1015,32 @@
             <div class="team-member-fields">
               <div>
                 <label for="tutor-name-${index}">Name *</label>
-                <input type="text" id="tutor-name-${index}" value="${tutor.name}" 
+                <input type="text" id="tutor-name-${index}" value="${escapeHtml(tutor.name)}"
                        onchange="updateModuleTutor(${index}, 'name', this.value)" required>
               </div>
               <div>
                 <label for="tutor-image-${index}">Profile Image URL</label>
-                <input type="url" id="tutor-image-${index}" value="${tutor.image}" 
+                <input type="url" id="tutor-image-${index}" value="${escapeHtml(tutor.image)}"
                        onchange="updateModuleTutor(${index}, 'image', this.value)">
               </div>
               <div>
                 <label for="tutor-email-${index}">Email Address *</label>
-                <input type="email" id="tutor-email-${index}" value="${tutor.email}" 
+                <input type="email" id="tutor-email-${index}" value="${escapeHtml(tutor.email)}"
                        onchange="updateModuleTutor(${index}, 'email', this.value)" required>
               </div>
               <div>
                 <label for="tutor-teams-${index}">MS Teams Username</label>
-                <input type="text" id="tutor-teams-${index}" value="${tutor.teams}" 
+                <input type="text" id="tutor-teams-${index}" value="${escapeHtml(tutor.teams)}"
                        onchange="updateModuleTutor(${index}, 'teams', this.value)">
               </div>
               <div>
                 <label for="tutor-website-${index}">Website URL</label>
-                <input type="url" id="tutor-website-${index}" value="${tutor.website}" 
+                <input type="url" id="tutor-website-${index}" value="${escapeHtml(tutor.website)}"
                        onchange="updateModuleTutor(${index}, 'website', this.value)">
               </div>
               <div>
                 <label for="tutor-phone-${index}">Phone Number</label>
-                <input type="tel" id="tutor-phone-${index}" value="${tutor.phone}" 
+                <input type="tel" id="tutor-phone-${index}" value="${escapeHtml(tutor.phone)}"
                        onchange="updateModuleTutor(${index}, 'phone', this.value)">
               </div>
             </div>
@@ -1331,17 +1332,17 @@ ${cardsHTML}
       const cardRowEnd = isModuleLead ? '  </div>\n' : '';
       
       return `${cardRow}    <div class="card">
-      <img src="${member.image || 'https://i.imgur.com/4FsvBgw.jpeg'}" alt="${member.name}">
-      <h1>${member.name}</h1>
-      <p class="title">${member.title}</p>
+      <img src="${escapeHtml(webAddress(member.image) || 'https://i.imgur.com/4FsvBgw.jpeg')}" alt="${escapeHtml(member.name)}">
+      <h1>${escapeHtml(member.name)}</h1>
+      <p class="title">${escapeHtml(member.title)}</p>
       <p>Example University</p>
       <div class="card-links">
-        <a href="mailto:${member.email}" target="_blank"><i class="fa fa-envelope"></i></a>
-        ${member.teams ? `<a href="https://teams.microsoft.com/l/chat/0/0?users=${member.teams}" target="_blank"><i class="fa fa-comments"></i></a>` : ''}
-        ${member.website ? `<a href="${member.website}" target="_blank"><i class="fa fa-globe"></i></a>` : ''}
-        ${member.phone ? `<a href="tel:${member.phone}" target="_blank"><i class="fa fa-phone"></i></a>` : ''}
+        <a href="mailto:${escapeHtml(member.email)}" target="_blank"><i class="fa fa-envelope"></i></a>
+        ${member.teams ? `<a href="https://teams.microsoft.com/l/chat/0/0?users=${encodeURIComponent(member.teams)}" target="_blank"><i class="fa fa-comments"></i></a>` : ''}
+        ${member.website ? `<a href="${escapeHtml(webAddress(member.website))}" target="_blank"><i class="fa fa-globe"></i></a>` : ''}
+        ${member.phone ? `<a href="tel:${escapeHtml(member.phone)}" target="_blank"><i class="fa fa-phone"></i></a>` : ''}
       </div>
-      <p><a href="mailto:${member.email}" target="_blank"><button>Contact</button></a></p>
+      <p><a href="mailto:${escapeHtml(member.email)}" target="_blank"><button>Contact</button></a></p>
     </div>${cardRowEnd}`;
     }
 
