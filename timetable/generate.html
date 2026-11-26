@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"></script>
   <style>
     .first-teaching-date-section {
       background: var(--card-bg);
@@ -320,6 +320,7 @@
       transform: translateY(0);
     }
   </style>
+<script src="../html-output.js"></script>
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
@@ -961,7 +962,7 @@
       const container = document.getElementById("timetableForm");
       const weekCount = container.children.length;
       const nextWeek = weekNumber || weekCount + 1;
-      const id = `week-${weekNumber}`;
+      const id = `week-${nextWeek}`;
 
       const block = document.createElement("div");
       block.className = "week-block";
@@ -969,25 +970,25 @@
       const headerId = `header-${id}`;
 
       block.innerHTML = `
-        <div class="week-header" id="${headerId}">
-          <span class="week-title">Week ${nextWeek}: ${topicValue}</span>
+        <div class="week-header" id="${escapeHtml(headerId)}">
+          <span class="week-title">Week ${escapeHtml(nextWeek)}: ${escapeHtml(topicValue)}</span>
           <span class="week-summary">Click to edit</span>
         </div>
         <div class="week-content">
           <div class="form-row">
             <div>
               <label>Week Number</label>
-              <div class="display-field">${nextWeek}</div>
-              <input type="hidden" name="week" value="${nextWeek}">
+              <div class="display-field">${escapeHtml(nextWeek)}</div>
+              <input type="hidden" name="week" value="${escapeHtml(nextWeek)}">
             </div>
             <div>
               <label>Week Type</label>
               <div class="display-field">${weekType === "teaching" ? "Teaching Week" : weekType === "reading" ? "Reading Week" : weekType === "break" ? "Break" : weekType === "assessment" ? "Assessment Week" : "Teaching Week"}</div>
-              <input type="hidden" name="type" value="${weekType}">
+              <input type="hidden" name="type" value="${escapeHtml(weekType)}">
             </div>
             <div>
               <label>Highlight Week?</label>
-              <select name="highlight" onchange="updateHeader('${id}')">
+              <select name="highlight">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>
               </select>
@@ -996,17 +997,19 @@
           <div class="form-row">
             <div>
               <label>Date</label>
-              <input type="date" name="date" required oninput="updateHeader('${id}')">
+              <input type="date" name="date" required>
             </div>
             <div>
               <label>Location</label>
-              <input type="text" name="location" required oninput="updateHeader('${id}')">
+              <input type="text" name="location" required>
             </div>
           </div>
           <label>Topic</label>
-          <input type="text" name="topic" value="${topicValue}" required oninput="updateHeader('${id}')">
+          <input type="text" name="topic" value="${escapeHtml(topicValue)}" required>
         </div>
       `;
+      block.addEventListener('input', () => updateHeader(id));
+      block.addEventListener('change', () => updateHeader(id));
       block.querySelector('.week-header').addEventListener('click', () => block.classList.toggle('open'));
       container.appendChild(block);
 
@@ -1069,11 +1072,11 @@
 
             content += `
             <div class="week-card${highlight ? ' highlight' : ''}">
-              <div class="week-title">Week ${week}</div>
-              <div class="week-type ${type}">${weekTypeLabel}</div>
-              <div class="session-date"><span class="tooltip"><i class="fa fa-calendar"></i><span class="tooltiptext">Session Date</span></span>${date}</div>
-              <div class="session-location"><span class="tooltip"><i class="fa fa-map-marker"></i><span class="tooltiptext">Session Location</span></span>${location}</div>
-              <div class="session-topic"><span class="tooltip"><i class="fa fa-book"></i><span class="tooltiptext">Session Topic</span></span>${topic}</div>
+              <div class="week-title">Week ${escapeHtml(week)}</div>
+              <div class="week-type ${escapeHtml(type)}">${escapeHtml(weekTypeLabel)}</div>
+              <div class="session-date"><span class="tooltip"><i class="fa fa-calendar"></i><span class="tooltiptext">Session Date</span></span>${escapeHtml(date)}</div>
+              <div class="session-location"><span class="tooltip"><i class="fa fa-map-marker"></i><span class="tooltiptext">Session Location</span></span>${escapeHtml(location)}</div>
+              <div class="session-topic"><span class="tooltip"><i class="fa fa-book"></i><span class="tooltiptext">Session Topic</span></span>${escapeHtml(topic)}</div>
             </div>`;
           });
 
@@ -1292,11 +1295,11 @@
         const weekTypeLabel = type === 'assessment' ? 'Assessment Week' : type.charAt(0).toUpperCase() + type.slice(1) + " Week";
                 content += `
                 <div class="week-card${highlight ? ' highlight' : ''}">
-                  <div class="week-title">Week ${week}</div>
-                  <div class="week-type ${type}">${weekTypeLabel}</div>
-                  <div class="session-date"><span class="tooltip"><i class="fa fa-calendar"></i><span class="tooltiptext">Session Date</span></span>${date}</div>
-                  <div class="session-location"><span class="tooltip"><i class="fa fa-map-marker"></i><span class="tooltiptext">Session Location</span></span>${location}</div>
-                  <div class="session-topic"><span class="tooltip"><i class="fa fa-book"></i><span class="tooltiptext">Session Topic</span></span>${topic}</div>
+                  <div class="week-title">Week ${escapeHtml(week)}</div>
+                  <div class="week-type ${escapeHtml(type)}">${escapeHtml(weekTypeLabel)}</div>
+                  <div class="session-date"><span class="tooltip"><i class="fa fa-calendar"></i><span class="tooltiptext">Session Date</span></span>${escapeHtml(date)}</div>
+                  <div class="session-location"><span class="tooltip"><i class="fa fa-map-marker"></i><span class="tooltiptext">Session Location</span></span>${escapeHtml(location)}</div>
+                  <div class="session-topic"><span class="tooltip"><i class="fa fa-book"></i><span class="tooltiptext">Session Topic</span></span>${escapeHtml(topic)}</div>
                 </div>`;
               });
 

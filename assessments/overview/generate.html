@@ -18,7 +18,7 @@
   <link rel="stylesheet" href="../../styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" integrity="sha384-JcnsjUPPylna1s1fvi1u12X5qjY5OL56iySh75FdtrwhO/SWXgMjoVqcKyIIWOLk" crossorigin="anonymous"></script>
   <style>
     .first-teaching-date-section {
       background: var(--card-bg);
@@ -420,6 +420,7 @@
     }
 
   </style>
+<script src="../../html-output.js"></script>
 </head>
 <body>
   <!-- Skip to main content link for accessibility -->
@@ -1032,23 +1033,23 @@
         const assessmentNumType = (a.assessmentNumber !== undefined ? a.assessmentNumber : '') + ': ' + (a.assessmentType || '');
         return `
         <tr>
-          <td>${assessmentNumType}</td>
-          <td><span class="${badgeClass}">${aiUseLabel}</span></td>
-          <td>${a.wordCount || ''}</td>
-          <td>${a.weighting || ''}</td>
-          <td>${a.passMark || ''}</td>
-          <td>${a.submissionDate ? formatDateTime(a.submissionDate) : ''}</td>
-          <td>${a.submissionMethod || ''}</td>
-          <td>${a.feedbackDate ? formatDate(a.feedbackDate) : ''}</td>
+          <td>${escapeHtml(assessmentNumType)}</td>
+          <td><span class="${badgeClass}">${escapeHtml(aiUseLabel)}</span></td>
+          <td>${escapeHtml(a.wordCount || '')}</td>
+          <td>${escapeHtml(a.weighting || '')}</td>
+          <td>${escapeHtml(a.passMark || '')}</td>
+          <td>${escapeHtml(a.submissionDate ? formatDateTime(a.submissionDate) : '')}</td>
+          <td>${escapeHtml(a.submissionMethod || '')}</td>
+          <td>${escapeHtml(a.feedbackDate ? formatDate(a.feedbackDate) : '')}</td>
         </tr>
       `;
       }).join('');
       // Build the AI use lists as bulleted lists
       const aiPermittedList = (Array.isArray(aiUsePermittedFromStorage) && aiUsePermittedFromStorage.length)
-        ? '<ul>' + aiUsePermittedFromStorage.map(item => `<li>${item}</li>`).join('') + '</ul>'
+        ? '<ul>' + aiUsePermittedFromStorage.map(item => `<li>${escapeHtml(item)}</li>`).join('') + '</ul>'
         : '';
       const aiNotPermittedList = (Array.isArray(aiUseNotPermittedFromStorage) && aiUseNotPermittedFromStorage.length)
-        ? '<ul>' + aiUseNotPermittedFromStorage.map(item => `<li>${item}</li>`).join('') + '</ul>'
+        ? '<ul>' + aiUseNotPermittedFromStorage.map(item => `<li>${escapeHtml(item)}</li>`).join('') + '</ul>'
         : '';
       // Always show permitted and not permitted sections if they have data
       let permittedSection = '';
@@ -1140,10 +1141,10 @@
           }
           return `
             <tr>
-              <td>${formativeNumber}: ${formativeType}</td>
-              <td>${formativeTask}</td>
-              <td>${submissionDateStr}</td>
-              <td>${feedbackDateStr}</td>
+              <td>${escapeHtml(formativeNumber)}: ${escapeHtml(formativeType)}</td>
+              <td>${escapeHtml(formativeTask)}</td>
+              <td>${escapeHtml(submissionDateStr)}</td>
+              <td>${escapeHtml(feedbackDateStr)}</td>
             </tr>
           `;
         }).join('');
@@ -1233,7 +1234,7 @@
     </table>
     <h2>AI Use in Assessment</h2>
     <div class="ai-section">
-      <p>${aiUseDesc}</p>
+      <p>${escapeHtml(aiUseDesc)}</p>
       ${permittedSection}
       ${notPermittedSection}
       <div class="important-note">
@@ -1620,9 +1621,9 @@
 
         container.innerHTML += `
         
-          <div class="assessment-block" id="${id}">
+          <div class="assessment-block" id="${escapeHtml(id)}">
             <div class="assessment-header" onclick="this.nextElementSibling.classList.toggle('collapsed'); this.querySelector('.toggle-icon') ? this.querySelector('.toggle-icon').textContent = this.nextElementSibling.classList.contains('collapsed') ? '▶' : '▼' : null;" style="background: ${headerBg};">
-              <span class="assessment-title">${assessmentNumberDisplay}: ${assessmentType} ${dueDateStr ? ' [' + dueDateStr + ']' : ''}${weightingDisplay ? ' [' + weightingDisplay + ' Weighting]' : ''}</span>
+              <span class="assessment-title">${escapeHtml(assessmentNumberDisplay)}: ${escapeHtml(assessmentType)} ${escapeHtml(dueDateStr ? ' [' + dueDateStr + ']' : '')}${escapeHtml(weightingDisplay ? ' [' + weightingDisplay + ' Weighting]' : '')}</span>
               <span class="assessment-summary">Click to edit</span>
               <span class="toggle-icon">▼</span>
             </div>
@@ -1630,16 +1631,16 @@
               <div class="form-row">
                 <div>
                   <label>Assessment Number</label>
-                  <div class="display-field">${assessmentNumberDisplay}</div>
-                  <input type="hidden" name="assessmentNumber" value="${assessmentNumberDisplay}">
+                  <div class="display-field">${escapeHtml(assessmentNumberDisplay)}</div>
+                  <input type="hidden" name="assessmentNumber" value="${escapeHtml(assessmentNumberDisplay)}">
                 </div>
                 <div>
                   <label>Assessment Type</label>
-                  <input type="text" name="type" value="${assessmentType}">
+                  <input type="text" name="type" value="${escapeHtml(assessmentType)}">
                 </div>
                 <div>
                   <label>Assessment Details</label>
-                  <input type="text" name="assessmentDetails" value="${assessmentDetails}">
+                  <input type="text" name="assessmentDetails" value="${escapeHtml(assessmentDetails)}">
                 </div>
                 <div>
                   <label>AI Usage</label>
@@ -1654,29 +1655,29 @@
               <div class="form-row">
                 <div>
                   <label>Word Count or Equivalent</label>
-                  <input type="text" name="wordCount" value="${wordCount}" required>
+                  <input type="text" name="wordCount" value="${escapeHtml(wordCount)}" required>
                 </div>
                 <div>
                   <label>Weighting</label>
-                  <input type="text" name="weighting" value="${weightingDisplay}" required>
+                  <input type="text" name="weighting" value="${escapeHtml(weightingDisplay)}" required>
                 </div>
                 <div>
                   <label>Pass Mark</label>
-                  <input type="text" name="passMark" value="${passMark}" required>
+                  <input type="text" name="passMark" value="${escapeHtml(passMark)}" required>
                 </div>
               </div>
               <div class="form-row">
                 <div>
                   <label>Submission Method</label>
-                  <input type="text" name="submissionMethod" value="${submissionMethod}" required>
+                  <input type="text" name="submissionMethod" value="${escapeHtml(submissionMethod)}" required>
                 </div>
                 <div>
                   <label>Submission Date & Time</label>
-                  <input type="datetime-local" name="submissionDate" value="${submissionDate}" required>
+                  <input type="datetime-local" name="submissionDate" value="${escapeHtml(submissionDate)}" required>
                 </div>
                 <div>
                   <label>Date of Feedback</label>
-                  <input type="datetime-local" name="feedbackDate" value="${feedbackDate}" required>
+                  <input type="datetime-local" name="feedbackDate" value="${escapeHtml(feedbackDate)}" required>
                 </div>
               </div>
             </div>
@@ -1840,9 +1841,9 @@
           }
         }
         container.innerHTML += `
-          <div class="formative-block" id="${id}">
+          <div class="formative-block" id="${escapeHtml(id)}">
             <div class="formative-header" onclick="this.nextElementSibling.classList.toggle('collapsed'); this.querySelector('.toggle-icon') ? this.querySelector('.toggle-icon').textContent = this.nextElementSibling.classList.contains('collapsed') ? '▶' : '▼' : null;">
-              <span class="formative-title">${formativeNumber}: ${formativeType}${dueDateStr ? ' [' + dueDateStr + ']' : ''}</span>
+              <span class="formative-title">${escapeHtml(formativeNumber)}: ${escapeHtml(formativeType)}${escapeHtml(dueDateStr ? ' [' + dueDateStr + ']' : '')}</span>
               <span class="formative-summary">Click to edit</span>
               <span class="toggle-icon">▼</span>
             </div>
@@ -1850,25 +1851,25 @@
               <div class="form-row">
                 <div>
                   <label>Formative Number</label>
-                  <div class="display-field">${formativeNumber}</div>
+                  <div class="display-field">${escapeHtml(formativeNumber)}</div>
                 </div>
                 <div>
                   <label>Type of Assessment</label>
-                  <input type="text" name="formativeType" value="${formativeType}">
+                  <input type="text" name="formativeType" value="${escapeHtml(formativeType)}">
                 </div>
                 <div>
                   <label>Task Details</label>
-                  <input type="text" name="formativeTask" value="${formativeTask}">
+                  <input type="text" name="formativeTask" value="${escapeHtml(formativeTask)}">
                 </div>
               </div>
               <div class="form-row">
                 <div>
                   <label>Submission Date & Time</label>
-                  <input type="datetime-local" name="formativeSubmissionDate" value="${submissionDate}">
+                  <input type="datetime-local" name="formativeSubmissionDate" value="${escapeHtml(submissionDate)}">
                 </div>
                 <div>
                   <label>Feedback Date</label>
-                  <input type="datetime-local" name="formativeFeedbackDate" value="${feedbackDate}">
+                  <input type="datetime-local" name="formativeFeedbackDate" value="${escapeHtml(feedbackDate)}">
                 </div>
               </div>
             </div>

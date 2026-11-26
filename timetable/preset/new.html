@@ -749,6 +749,7 @@
       margin-left: 60px;
     }
   </style>
+<script src="../../html-output.js"></script>
 </head>
 <body>
   <!-- Navbar -->
@@ -1156,7 +1157,7 @@
       row.className = 'form-row compact-tutor tutor-row';
 
       row.innerHTML = `
-        <div><input type="text" name="tutorName" placeholder="Tutor Name" value="${name}" /></div>
+        <div><input type="text" name="tutorName" placeholder="Tutor Name" value="${escapeHtml(name)}" /></div>
         <div><select name="tutorCampus">
           <option value="">Select Campus</option>
           <option value="London" ${campus === 'London' ? 'selected' : ''}>London</option>
@@ -1533,7 +1534,7 @@
           const row = document.createElement('div');
           row.className = 'form-row compact-tutor tutor-row';
           row.innerHTML = `
-            <div><input type="text" name="tutorName" placeholder="Tutor Name" value="${tutor.name}" /></div>
+            <div><input type="text" name="tutorName" placeholder="Tutor Name" value="${escapeHtml(tutor.name)}" /></div>
             <div><select name="tutorCampus">
               <option value="">Select Campus</option>
               <option value="London" ${tutor.campus === 'London' ? 'selected' : ''}>London</option>
@@ -1657,7 +1658,7 @@
             <option value="no" ${weekData.highlight !== 'yes' ? 'selected' : ''}>No</option>
             <option value="yes" ${weekData.highlight === 'yes' ? 'selected' : ''}>Yes</option>
         </select></td>
-        <td><input type="text" name="topic" value="${weekData.topic || ''}" required placeholder="Enter topic"></td>
+        <td><input type="text" name="topic" value="${escapeHtml(weekData.topic || '')}" required placeholder="Enter topic"></td>
         <td>
           <div class="action-buttons">
             <button type="button" onclick="moveWeekUp(this)" title="Move week up">⬆️</button>

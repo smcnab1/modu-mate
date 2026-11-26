@@ -803,6 +803,7 @@
       box-shadow: 0 0 0 2px var(--input-focus-shadow);
     }
   </style>
+<script src="../../html-output.js"></script>
 </head>
 <body>
   <!-- Toast Notifications -->
@@ -1328,7 +1329,7 @@
       tr.className = 'assessment-row';
       const isFirstRow = tbody.children.length === 0;
       tr.innerHTML = `
-        <td><input type="text" name="assessmentType" value="${assessmentData.assessmentType || ''}" required placeholder="e.g. Essay"></td>
+        <td><input type="text" name="assessmentType" value="${escapeHtml(assessmentData.assessmentType || '')}" required placeholder="e.g. Essay"></td>
         <td>
           <select name="aiUse">
             <option value=""${!assessmentData.aiUse ? ' selected' : ''}>Select...</option>
@@ -1337,10 +1338,10 @@
             <option value="red"${assessmentData.aiUse === 'red' ? ' selected' : ''}>Red (Not Permitted)</option>
           </select>
         </td>
-        <td><input type="text" name="wordCount" value="${assessmentData.wordCount || ''}" placeholder="e.g. 2000"></td>
-        <td><input type="text" name="weighting" value="${assessmentData.weighting || ''}" placeholder="e.g. 50%"></td>
-        <td><input type="text" name="passMark" value="${assessmentData.passMark || ''}" placeholder="e.g. 40"></td>
-        <td><input type="text" name="submissionMethod" value="${assessmentData.submissionMethod || ''}" placeholder="e.g. Online"></td>
+        <td><input type="text" name="wordCount" value="${escapeHtml(assessmentData.wordCount || '')}" placeholder="e.g. 2000"></td>
+        <td><input type="text" name="weighting" value="${escapeHtml(assessmentData.weighting || '')}" placeholder="e.g. 50%"></td>
+        <td><input type="text" name="passMark" value="${escapeHtml(assessmentData.passMark || '')}" placeholder="e.g. 40"></td>
+        <td><input type="text" name="submissionMethod" value="${escapeHtml(assessmentData.submissionMethod || '')}" placeholder="e.g. Online"></td>
         <td>${isFirstRow ? '' : '<button type="button" onclick="removeAssessmentRow(this)" class="remove-btn">❌</button>'}</td>
       `;
       tbody.appendChild(tr);
@@ -1368,7 +1369,7 @@
       const tr = document.createElement('div');
       tr.className = 'ai-use-row';
       tr.innerHTML = `
-        <input type="text" name="aiUsePermitted[]" value="${item}" placeholder="Add example..." />
+        <input type="text" name="aiUsePermitted[]" value="${escapeHtml(item)}" placeholder="Add example..." />
         <button type="button" onclick="removeAiUsePermittedRow(this)" class="remove-btn">❌</button>
       `;
       permittedList.appendChild(tr);
@@ -1396,7 +1397,7 @@
       const tr = document.createElement('div');
       tr.className = 'ai-use-row';
       tr.innerHTML = `
-        <input type="text" name="aiUseNotPermitted[]" value="${item}" placeholder="Add example..." />
+        <input type="text" name="aiUseNotPermitted[]" value="${escapeHtml(item)}" placeholder="Add example..." />
         <button type="button" onclick="removeAiUseNotPermittedRow(this)" class="remove-btn">❌</button>
       `;
       notPermittedList.appendChild(tr);
@@ -1425,8 +1426,8 @@
       const tr = document.createElement('tr');
       tr.className = 'formative-row';
       tr.innerHTML = `
-        <td><input type="text" name="formativeType" value="${rowData.formativeType || ''}" placeholder="e.g. Quiz, Practice Essay"></td>
-        <td><input type="text" name="formativeTask" value="${rowData.formativeTask || ''}" placeholder="Describe the task"></td>
+        <td><input type="text" name="formativeType" value="${escapeHtml(rowData.formativeType || '')}" placeholder="e.g. Quiz, Practice Essay"></td>
+        <td><input type="text" name="formativeTask" value="${escapeHtml(rowData.formativeTask || '')}" placeholder="Describe the task"></td>
         <td>${isFirstRow ? '' : '<button type="button" onclick="removeFormativeRow(this)" class="remove-btn">❌</button>'}</td>
       `;
       tbody.appendChild(tr);
