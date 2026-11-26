@@ -18,3 +18,5 @@ reviews:
   path_instructions:
     - path: "**/*.{js,html}"
       instructions: "Trace imported module data through preview and HTML export. Check encoding, keyboard access and preservation of timetable and assessment content."
+    - path: ".github/workflows/**"
+      instructions: "Keep lint on pull requests and Pages deployment restricted to the existing publishing branch."
